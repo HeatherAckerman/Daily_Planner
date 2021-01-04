@@ -28,34 +28,31 @@ $(document).ready(function () {
     };
 
 
-    // This will save the users input to local storage when they click the save button (when I get it working)
-    //try
-    $(".saveBtn").click(function(){
-
-        var text = $(this).siblings().val();
-        var time = $(this).attr("id");
-        var time2 = parseInt(time);
-
-        console.log(time2);
-        console.log(text);
-        
-        localStorage.setItem(time2, text);
-
-    });      
-
-    // // This will get the saved inputs from the local storage if the user closes out of the schedule and pulls it back up (when I get it working)
-    function getSavedInputs() {
+    // This will save the users input to local storage when save is clicked
+    $(".saveBtn").on("click", function() {
+        // get nearby values
+        var value = $(this).siblings(".description").val();
+        var time = $(this).parent().attr("id");
     
-        $(".event").each(function() {
+        // save in localStorage
+        localStorage.setItem(time, value);
+      });     
 
-        var savedInputs = $(this).attr("id");
-        $(this).val(localStorage.getItem(savedInputs));
-
-    });
-    
-    };
+  // load any saved data from localStorage
+  $("#6 .description").val(localStorage.getItem("6"));
+  $("#7 .description").val(localStorage.getItem("7"));
+  $("#8 .description").val(localStorage.getItem("8"));
+  $("#9 .description").val(localStorage.getItem("9"));
+  $("#10 .description").val(localStorage.getItem("10"));
+  $("#11 .description").val(localStorage.getItem("11"));
+  $("#12 .description").val(localStorage.getItem("12"));
+  $("#13 .description").val(localStorage.getItem("13"));
+  $("#14 .description").val(localStorage.getItem("14"));
+  $("#15 .description").val(localStorage.getItem("15"));
+  $("#16 .description").val(localStorage.getItem("16"));
+  $("#17 .description").val(localStorage.getItem("17"));
+  $("#18 .description").val(localStorage.getItem("18"));
    
     getCurrnetDay();
     inputColor();
-    getSavedInputs();
 });
