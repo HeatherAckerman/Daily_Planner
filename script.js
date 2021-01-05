@@ -7,9 +7,9 @@ $(document).ready(function () {
     var hour = moment().hours();
 
     //This function adds a past, present, or future class to each html input. It determines the class by checking the current time against each time row on the schedule
-    function inputColor() {
+    function textareaColor() {
 
-        $("input").each(function () {
+        $("textarea").each(function () {
             // console.log(hour)
             var inputId = $(this).attr("id");
             // console.log(inputId);
@@ -54,5 +54,5 @@ $(document).ready(function () {
   $("#18 .description").val(localStorage.getItem("18"));
    
     getCurrnetDay();
-    inputColor();
+    textareaColor();
 });
